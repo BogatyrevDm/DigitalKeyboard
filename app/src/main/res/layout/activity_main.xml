@@ -4,12 +4,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="horizontal"
     android:layout_columnSpan="4">
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/button_clear_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_span="2"
+            android:text="@string/button_clear_all"
+            android:textSize="@dimen/button_size" />
+        <Button
+            android:id="@+id/button_clear_one"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_clear_one"
+            android:textSize="@dimen/button_size" />
+        <Button
+            android:id="@+id/button_divide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_divide"
+            android:textSize="@dimen/button_size" />
+
+    </TableRow>
 
     <TableRow
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center">
+        android:gravity="center">
 
         <Button
             android:id="@+id/button_1"
@@ -40,7 +68,7 @@
     <TableRow
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center">
+        android:gravity="center">
 
         <Button
             android:id="@+id/button_4"
@@ -71,7 +99,7 @@
     <TableRow
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center">
+        android:gravity="center">
 
         <Button
             android:id="@+id/button_7"
@@ -102,7 +130,7 @@
     <TableRow
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center">
+        android:gravity="center">
 
         <Button
             android:id="@+id/button_change_sing"

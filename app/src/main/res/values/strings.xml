@@ -16,4 +16,7 @@
     <string name="button_comma">,</string>
     <string name="button_0">0</string>
     <string name="button_change_sing">+/-</string>
+    <string name="button_clear_all">C</string>
+    <string name="button_clear_one"><![CDATA[<-]]></string>
+    <string name="button_divide">/</string>
 </resources>
