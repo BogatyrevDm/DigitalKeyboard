@@ -12,4 +12,8 @@
     <string name="button_9">9</string>
     <string name="button_8">8</string>
     <string name="button_7">7</string>
+    <string name="button_equal">=</string>
+    <string name="button_comma">,</string>
+    <string name="button_0">0</string>
+    <string name="button_change_sing">+/-</string>
 </resources>

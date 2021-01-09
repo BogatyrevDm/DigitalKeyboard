@@ -99,4 +99,35 @@
             android:textSize="@dimen/button_size" />
 
     </TableRow>
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <Button
+            android:id="@+id/button_change_sing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_change_sing"
+            android:textSize="@dimen/button_size" />
+        <Button
+            android:id="@+id/button_0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_0"
+            android:textSize="@dimen/button_size" />
+        <Button
+            android:id="@+id/button_comma"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_comma"
+            android:textSize="@dimen/button_size" />
+        <Button
+            android:id="@+id/button_equal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_equal"
+            android:textSize="@dimen/button_size" />
+
+    </TableRow>
 </TableLayout>
