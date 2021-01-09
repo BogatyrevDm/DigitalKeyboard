@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">DigitalKeyboard</string>
+    <string name="button_1">1</string>
+    <string name="button_2">2</string>
+    <string name="button_3">3</string>
+    <string name="button_multiply">*</string>
 </resources>
