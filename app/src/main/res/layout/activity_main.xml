@@ -11,6 +11,23 @@
         android:layout_height="wrap_content"
         android:gravity="center">
 
+        <TextView
+            android:id="@+id/show_result_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_start_end"
+            android:layout_marginEnd="@dimen/margin_start_end"
+            android:layout_span="4"
+            android:text="@string/button_0"
+            android:gravity="end"
+            android:textSize="@dimen/button_size" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
         <Button
             android:id="@+id/button_clear_all"
             android:layout_width="wrap_content"
