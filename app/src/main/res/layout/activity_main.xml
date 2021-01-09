@@ -35,6 +35,37 @@
             android:layout_height="wrap_content"
             android:text="@string/button_multiply"
             android:textSize="@dimen/button_size" />
-    </TableRow>
 
+    </TableRow>
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <Button
+            android:id="@+id/button_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_4"
+            android:textSize="@dimen/button_size" />
+        <Button
+            android:id="@+id/button_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_5"
+            android:textSize="@dimen/button_size" />
+        <Button
+            android:id="@+id/button_6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_6"
+            android:textSize="@dimen/button_size" />
+        <Button
+            android:id="@+id/button_minus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_minus"
+            android:textSize="@dimen/button_size" />
+
+    </TableRow>
 </TableLayout>
