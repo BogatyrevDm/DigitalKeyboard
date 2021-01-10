@@ -56,6 +56,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_start_end"
             android:layout_marginEnd="@dimen/margin_start_end"
+
             android:text="@string/button_divide"
             android:textSize="@dimen/button_size" />
 
