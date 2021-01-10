@@ -4,6 +4,9 @@
     android:layout_height="match_parent"
     android:layout_columnSpan="4"
     android:gravity="center"
+    android:background="@drawable/background_numbers"
+
+    android:baselineAligned="false"
     android:orientation="horizontal">
 
     <TableRow
