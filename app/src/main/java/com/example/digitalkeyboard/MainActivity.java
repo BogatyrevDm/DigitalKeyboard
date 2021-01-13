@@ -1,13 +1,13 @@
 package com.example.digitalkeyboard;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private Calculator calculator;
     private Button button0;
     private Button button1;
@@ -93,6 +93,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         textViewShowResult = findViewById(R.id.show_result_textview);
         textViewEnterNumbers = findViewById(R.id.enter_numbers_textview);
     }
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -155,31 +156,90 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
     }
-    private void setNumber(int buttonId) {
 
+    private void setShowResultText() {
+        textViewShowResult.setText(calculator.getStringResult());
+        textViewEnterNumbers.setText(calculator.getStringFirstNumber());
+    }
+
+    String getViewText(int id) {
+        if (id == R.id.button_0) {
+            return (String) button0.getText();
+        } else if (id == R.id.button_1) {
+            return (String) button1.getText();
+
+        } else if (id == R.id.button_2) {
+            return (String) button2.getText();
+
+        } else if (id == R.id.button_3) {
+            return (String) button3.getText();
+
+        } else if (id == R.id.button_4) {
+            return (String) button4.getText();
+
+        } else if (id == R.id.button_5) {
+            return (String) button5.getText();
+
+        } else if (id == R.id.button_6) {
+            return (String) button6.getText();
+
+        } else if (id == R.id.button_7) {
+            return (String) button7.getText();
+
+        } else if (id == R.id.button_8) {
+            return (String) button8.getText();
+
+        } else if (id == R.id.button_9) {
+            return (String) button9.getText();
+
+        } else if (id == R.id.button_multiply) {
+            return (String) buttonMultiply.getText();
+
+        } else if (id == R.id.button_divide) {
+
+            return (String) buttonDivide.getText();
+        } else if (id == R.id.button_plus) {
+            return (String) buttonPlus.getText();
+
+        } else if (id == R.id.button_minus) {
+            return (String) buttonMinus.getText();
+        } else {
+            return "";
+        }
+    }
+
+    private void setNumber(int buttonId) {
+        calculator.setNumber(getViewText(buttonId));
+        setShowResultText();
     }
 
     private void setComma() {
-
+        calculator.setComma(true);
+        setShowResultText();
     }
 
     private void setEqual() {
-
+        calculator.setEqual();
+        setShowResultText();
     }
 
     private void setChangeSing() {
-
+        calculator.setChangeSing();
+        setShowResultText();
     }
 
     private void cleatAll() {
-
+        calculator.cleatAll();
+        setShowResultText();
     }
 
     private void clearOne() {
-
+        calculator.clearOne();
+        setShowResultText();
     }
 
     private void setSing(int buttonId) {
-
+        calculator.setSing(getViewText(buttonId));
+        setShowResultText();
     }
 }
