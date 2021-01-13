@@ -18,10 +18,32 @@
             android:id="@+id/show_result_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_bottom"
             android:layout_marginStart="@dimen/margin_start_end"
             android:layout_marginEnd="@dimen/margin_start_end"
             android:layout_span="4"
-            android:text="@string/button_0"
+
+            android:gravity="end"
+            android:text="@string/defaultText"
+            android:textColor="@color/white"
+            android:background="@color/text_view_back_color"
+            android:textSize="@dimen/button_size" />
+    </TableRow>
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/enter_numbers_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_start_end"
+            android:layout_marginEnd="@dimen/margin_start_end"
+            android:layout_span="4"
+            android:textColor="@color/white"
+            android:text="@string/defaultText"
+            android:background="@color/text_view_back_color"
             android:gravity="end"
             android:textSize="@dimen/button_size" />
     </TableRow>

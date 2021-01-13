@@ -19,4 +19,5 @@
     <string name="button_clear_all">C</string>
     <string name="button_clear_one"><![CDATA[<-]]></string>
     <string name="button_divide">/</string>
+    <string name="defaultText">0</string>
 </resources>

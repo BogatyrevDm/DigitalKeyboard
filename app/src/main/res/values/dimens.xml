@@ -2,4 +2,5 @@
 <resources>
     <dimen name="button_size">35sp</dimen>
     <dimen name="margin_start_end">5dp</dimen>
+    <dimen name="margin_bottom">5dp</dimen>
 </resources>
