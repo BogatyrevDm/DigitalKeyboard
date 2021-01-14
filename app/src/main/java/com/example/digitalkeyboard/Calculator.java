@@ -1,8 +1,11 @@
 package com.example.digitalkeyboard;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.math.BigDecimal;
 
-public class Calculator {
+public class Calculator implements Parcelable {
     private double result;//результат вычисления
     private double firstNumber;//вводимое в настоящий момент число.
     private char sign;//знак вычисления
@@ -26,6 +29,33 @@ public class Calculator {
         clearSing();
 
     }
+
+    protected Calculator(Parcel in) {
+        result = in.readDouble();
+        firstNumber = in.readDouble();
+        sign = (char) in.readInt();
+        commaAdded = in.readByte() != 0;
+        equalPressed = in.readByte() != 0;
+        quantityAfterComma = in.readInt();
+//        MAX_QUANTITY_AFTER_COMMA = in.readInt();
+//        EMPTY_CHAR = (char) in.readInt();
+//        PLUS = (char) in.readInt();
+//        MINUS = (char) in.readInt();
+//        MUPTIPLY = (char) in.readInt();
+//        DIVIDE = (char) in.readInt();
+    }
+
+    public static final Creator<Calculator> CREATOR = new Creator<Calculator>() {
+        @Override
+        public Calculator createFromParcel(Parcel in) {
+            return new Calculator(in);
+        }
+
+        @Override
+        public Calculator[] newArray(int size) {
+            return new Calculator[size];
+        }
+    };
 
     //Устанавливает значение переменной equalPressed
     private void setEqualPressed(boolean equalPressed) {
@@ -176,5 +206,26 @@ public class Calculator {
             numberQuantity++;
         }
         return numberQuantity;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeDouble(result);
+        dest.writeDouble(firstNumber);
+        dest.writeInt((int) sign);
+        dest.writeByte((byte) (commaAdded ? 1 : 0));
+        dest.writeByte((byte) (equalPressed ? 1 : 0));
+        dest.writeInt(quantityAfterComma);
+//        dest.writeInt(MAX_QUANTITY_AFTER_COMMA);
+//        dest.writeInt((int) EMPTY_CHAR);
+//        dest.writeInt((int) PLUS);
+//        dest.writeInt((int) MINUS);
+//        dest.writeInt((int) MUPTIPLY);
+//        dest.writeInt((int) DIVIDE);
     }
 }
