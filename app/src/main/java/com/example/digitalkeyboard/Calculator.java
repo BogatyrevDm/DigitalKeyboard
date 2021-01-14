@@ -6,6 +6,11 @@ public class Calculator {
     private String sign;//знак вычисления
     private boolean commaAdded;//флаг, указывающий на то, что вводятся числа дробной части
     private int quantityAfterComma;//хранит количество знаков после запятой
+    private final int MAX_QUANTITY_AFTER_COMMA = 15;//грубо ограничим количество знаков после запятой, из-за ограничения типа double
+    //Для хранения больших числе - надо бы использовать MaxDecimal
+    private final String ZERO_STRING = "0";
+    private String[] splitter;//для форматирования чисел. Вынесем сюда, что бы каждый раз не создавать новый объект
+
     public Calculator() {
         this.firstNumber = 0.0;
         this.result = 0.0;
@@ -32,7 +37,7 @@ public class Calculator {
         this.sign = "";
     }
 
-    void resetNumbers() {
+    private void resetNumbers() {
 
         result = firstNumber;
         firstNumber = 0.0;
@@ -41,7 +46,7 @@ public class Calculator {
 
     }
 
-    void makeCalculation(double fNumber, double sNumber) {
+    private void makeCalculation(double fNumber, double sNumber) {
         switch (sign) {
             case "+":
                 firstNumber = fNumber + sNumber;
@@ -135,14 +140,26 @@ public class Calculator {
 
     String getStringResult() {
         //return String.format("%s%s", stringResult, sign);
-        return String.format("%f%s", result, sign);
+        int length = 0;
+        String[] splitter = String.valueOf(result).split("\\.");
+        length = splitter[1].length();
+        if (splitter[1].equals(ZERO_STRING)) {//если после запятой одна цифра и это ноль, исключаем его из формата
+            //немного костыль, но лучшего решения не придумал
+            length = 0;
+        }
+        length = getMinLength(length);//Если полученное количество знаков после запятой больше ммаксимального количества - берем максимум
+        String stringFormat = String.format("%%.%df%%s", length);
+        //return String.format("%f%s", result, sign);
+        return String.format(stringFormat, result, sign);
     }
 
     String getStringFirstNumber() {
-
-        String stringFormat = String.format("%%.%df", quantityAfterComma);//отформатируем по количеству знаков после запятой
-
-
+        int length = getMinLength(quantityAfterComma);//Если полученное количество знаков после запятой больше ммаксимального количества - берем максимум
+        String stringFormat = String.format("%%.%df", length);//отформатируем по количеству знаков после запятой
         return String.format(stringFormat, firstNumber);
+    }
+
+    private int getMinLength(int fNumber) {
+        return Math.min(fNumber, MAX_QUANTITY_AFTER_COMMA);
     }
 }
