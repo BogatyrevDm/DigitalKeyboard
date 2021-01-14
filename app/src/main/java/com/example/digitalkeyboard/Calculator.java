@@ -6,17 +6,11 @@ public class Calculator {
     private double result;//результат вычисления
     private double firstNumber;//вводимое в настоящий момент число.
     private char sign;//знак вычисления
-    private String EMPTY_STRING;
     private boolean commaAdded;//флаг, указывающий на то, что вводятся числа дробной части
+    private boolean equalPressed;
     private int quantityAfterComma;//хранит количество знаков после запятой
     private final int MAX_QUANTITY_AFTER_COMMA = 15;//грубо ограничим количество знаков после запятой, из-за ограничения типа double
     //Для хранения больших числе - надо бы использовать MaxDecimal
-/*
-    private final String PLUS = "+";
-    private final String MINUS = "-";
-    private final String MUPTIPLY = "*";
-    private final String DIVIDE = "/";
-*/
     private final char EMPTY_CHAR = Character.MIN_VALUE;
     private final char PLUS = '+';
     private final char MINUS = '-';
@@ -28,8 +22,14 @@ public class Calculator {
         this.result = 0.0;
         this.commaAdded = false;
         this.quantityAfterComma = 0;
+        setEqualPressed(false);
         clearSing();
 
+    }
+
+    //Устанавливает значение переменной equalPressed
+    private void setEqualPressed(boolean equalPressed) {
+        this.equalPressed = equalPressed;
     }
 
     //обрабатывает переданный знак =, выполняет вычисления
@@ -44,6 +44,7 @@ public class Calculator {
         }
         resetNumbers();
         clearSing();
+        setEqualPressed(true);
     }
 
     //очищает переменную, хранящую знак
@@ -105,9 +106,12 @@ public class Calculator {
 
     //устанавливает знак вычисления
     void setSing(String sign) {
-        if (this.sign == EMPTY_CHAR) {//Пользователь нажал знак вычисления второй раз. Выполним действия, равносильные нажатию =
-            resetNumbers();
-        } else {
+        if (this.sign == EMPTY_CHAR) {
+            if (!equalPressed) {
+                resetNumbers();
+                setEqualPressed(false);
+            }
+        } else {//Пользователь нажал знак вычисления второй раз. Выполним действия, равносильные нажатию =
             setEqual();
         }
         this.sign = sign.charAt(0);
