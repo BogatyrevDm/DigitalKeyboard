@@ -10,7 +10,7 @@ public class Calculator implements Parcelable {
     private double firstNumber;//вводимое в настоящий момент число.
     private char sign;//знак вычисления
     private boolean commaAdded;//флаг, указывающий на то, что вводятся числа дробной части
-    private boolean equalPressed;
+    private boolean equalPressed;//флаг, указывающий на нажатие пробела
     private int quantityAfterComma;//хранит количество знаков после запятой
     private final int MAX_QUANTITY_AFTER_COMMA = 15;//грубо ограничим количество знаков после запятой, из-за ограничения типа double
     //Для хранения больших числе - надо бы использовать MaxDecimal
@@ -37,12 +37,6 @@ public class Calculator implements Parcelable {
         commaAdded = in.readByte() != 0;
         equalPressed = in.readByte() != 0;
         quantityAfterComma = in.readInt();
-//        MAX_QUANTITY_AFTER_COMMA = in.readInt();
-//        EMPTY_CHAR = (char) in.readInt();
-//        PLUS = (char) in.readInt();
-//        MINUS = (char) in.readInt();
-//        MUPTIPLY = (char) in.readInt();
-//        DIVIDE = (char) in.readInt();
     }
 
     public static final Creator<Calculator> CREATOR = new Creator<Calculator>() {
@@ -82,7 +76,7 @@ public class Calculator implements Parcelable {
         this.sign = EMPTY_CHAR;
     }
 
-    //обнуляет числа и переменный
+    //обнуляет числа и переменные, записывает firstNumber в result
     private void resetNumbers() {
         result = firstNumber;
         firstNumber = 0.0;
@@ -221,11 +215,5 @@ public class Calculator implements Parcelable {
         dest.writeByte((byte) (commaAdded ? 1 : 0));
         dest.writeByte((byte) (equalPressed ? 1 : 0));
         dest.writeInt(quantityAfterComma);
-//        dest.writeInt(MAX_QUANTITY_AFTER_COMMA);
-//        dest.writeInt((int) EMPTY_CHAR);
-//        dest.writeInt((int) PLUS);
-//        dest.writeInt((int) MINUS);
-//        dest.writeInt((int) MUPTIPLY);
-//        dest.writeInt((int) DIVIDE);
     }
 }

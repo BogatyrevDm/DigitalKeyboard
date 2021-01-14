@@ -54,12 +54,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setShowResultText();
     }
 
+    //инициализируем внешний вид
     private void initView() {
         findViews();
         setClickListeners();
     }
 
-    //setting clickListeners
+    //устанавливает кликлистнеры
     private void setClickListeners() {
         button0.setOnClickListener(this);
         button1.setOnClickListener(this);
@@ -84,7 +85,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         textViewEnterNumbers.setOnClickListener(this);
     }
 
-    //finding views needed
+    //находит вью по ID
     private void findViews() {
         button0 = findViewById(R.id.button_0);
         button1 = findViewById(R.id.button_1);
