@@ -5,27 +5,36 @@ import java.math.BigDecimal;
 public class Calculator {
     private double result;//результат вычисления
     private double firstNumber;//вводимое в настоящий момент число.
-    private String sign;//знак вычисления
+    private char sign;//знак вычисления
+    private String EMPTY_STRING;
     private boolean commaAdded;//флаг, указывающий на то, что вводятся числа дробной части
     private int quantityAfterComma;//хранит количество знаков после запятой
     private final int MAX_QUANTITY_AFTER_COMMA = 15;//грубо ограничим количество знаков после запятой, из-за ограничения типа double
     //Для хранения больших числе - надо бы использовать MaxDecimal
+/*
     private final String PLUS = "+";
     private final String MINUS = "-";
     private final String MUPTIPLY = "*";
     private final String DIVIDE = "/";
+*/
+    private final char EMPTY_CHAR = Character.MIN_VALUE;
+    private final char PLUS = '+';
+    private final char MINUS = '-';
+    private final char MUPTIPLY = '*';
+    private final char DIVIDE = '/';
 
     public Calculator() {
         this.firstNumber = 0.0;
         this.result = 0.0;
         this.commaAdded = false;
         this.quantityAfterComma = 0;
-        this.sign = "";
+        clearSing();
+
     }
 
     //обрабатывает переданный знак =, выполняет вычисления
     void setEqual() {
-        if (sign == "") {//знак действия не нажат, не выполняем вычисления
+        if (sign == EMPTY_CHAR) {//знак действия не нажат, не выполняем вычисления
             return;
         }
         if (firstNumber == 0.0) {//пользователь не ввел второе число. Делаем вычисление с самим собой
@@ -39,7 +48,7 @@ public class Calculator {
 
     //очищает переменную, хранящую знак
     private void clearSing() {
-        this.sign = "";
+        this.sign = EMPTY_CHAR;
     }
 
     //обнуляет числа и переменный
@@ -96,12 +105,12 @@ public class Calculator {
 
     //устанавливает знак вычисления
     void setSing(String sign) {
-        if (this.sign != "") {//Пользователь нажал знак вычисления второй раз. Выполним действия, равносильные нажатию =
-            setEqual();
-        } else {
+        if (this.sign == EMPTY_CHAR) {//Пользователь нажал знак вычисления второй раз. Выполним действия, равносильные нажатию =
             resetNumbers();
+        } else {
+            setEqual();
         }
-        this.sign = sign;
+        this.sign = sign.charAt(0);
     }
 
     //устанавливает разделитель
@@ -145,7 +154,6 @@ public class Calculator {
     //определяет количество знаков при округлении с учетом ограничений
     private int getMinLength(double numberToSplit) {
         int length = 0;
-        String[] splitter = String.valueOf(numberToSplit).split("\\.");
         length = BigDecimal.valueOf(numberToSplit).scale();
         double flooredNumber = Math.floor(numberToSplit);
         int quantityBeforComma = countNumberQuantity(flooredNumber);
