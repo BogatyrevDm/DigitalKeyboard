@@ -1,5 +1,7 @@
 package com.example.digitalkeyboard;
 
+import java.math.BigDecimal;
+
 public class Calculator {
     private double result;//результат вычисления
     private double firstNumber;//вводимое в настоящий момент число.
@@ -8,8 +10,10 @@ public class Calculator {
     private int quantityAfterComma;//хранит количество знаков после запятой
     private final int MAX_QUANTITY_AFTER_COMMA = 15;//грубо ограничим количество знаков после запятой, из-за ограничения типа double
     //Для хранения больших числе - надо бы использовать MaxDecimal
-    private final String ZERO_STRING = "0";
-    private String[] splitter;//для форматирования чисел. Вынесем сюда, что бы каждый раз не создавать новый объект
+    private final String PLUS = "+";
+    private final String MINUS = "-";
+    private final String MUPTIPLY = "*";
+    private final String DIVIDE = "/";
 
     public Calculator() {
         this.firstNumber = 0.0;
@@ -19,6 +23,7 @@ public class Calculator {
         this.sign = "";
     }
 
+    //обрабатывает переданный знак =, выполняет вычисления
     void setEqual() {
         if (sign == "") {//знак действия не нажат, не выполняем вычисления
             return;
@@ -30,58 +35,56 @@ public class Calculator {
         }
         resetNumbers();
         clearSing();
-
     }
 
+    //очищает переменную, хранящую знак
     private void clearSing() {
         this.sign = "";
     }
 
+    //обнуляет числа и переменный
     private void resetNumbers() {
-
         result = firstNumber;
         firstNumber = 0.0;
         quantityAfterComma = 0;
         setComma(false);
-
     }
 
+    //выполняет вычисления согласно знака
     private void makeCalculation(double fNumber, double sNumber) {
         switch (sign) {
-            case "+":
+            case PLUS:
                 firstNumber = fNumber + sNumber;
                 break;
-            case "-":
+            case MINUS:
                 firstNumber = fNumber - sNumber;
                 break;
-            case "/":
+            case DIVIDE:
                 firstNumber = fNumber / sNumber;
                 break;
-            case "*":
+            case MUPTIPLY:
                 firstNumber = fNumber * sNumber;
                 break;
-
         }
-
     }
 
+    //меняет знак числа
     void setChangeSing() {
         firstNumber = firstNumber * -1.0;
-
     }
 
+    //очищает все
     void cleatAll() {
         quantityAfterComma = 0;
         firstNumber = 0;
         result = 0;
         setComma(false);
         clearSing();
-
     }
 
+    //очищает последний введенный символ
     void clearOne() {
         if (quantityAfterComma == 0) {
-
             firstNumber = Math.floor(firstNumber / 10.0);
         } else {
             quantityAfterComma--;
@@ -91,75 +94,75 @@ public class Calculator {
         }
     }
 
+    //устанавливает знак вычисления
     void setSing(String sign) {
         if (this.sign != "") {//Пользователь нажал знак вычисления второй раз. Выполним действия, равносильные нажатию =
             setEqual();
         } else {
-
             resetNumbers();
         }
         this.sign = sign;
     }
 
+    //устанавливает разделитель
     void setComma(boolean commaValue) {
         commaAdded = commaValue;
     }
 
+    //заполняет переданное число
     void setNumber(String number) {
+        int quantityBeforComma = countNumberQuantity(Math.floor(firstNumber));
+        if (quantityBeforComma >= MAX_QUANTITY_AFTER_COMMA) {//не даем вводить больше 15 знаков после запятой
+            return;
+        }
         //Приводим строку к числу
         int intNumber = Integer.parseInt(number);
-        if (firstNumber == 0) {
-            if (intNumber == 0) {
-                //Если число равно 0 и передан 0 - устанавливаем признак дробной части
-                setComma(true);
-            } else {
-                //Первая цифра в числе
-                firstNumber = intNumber;
-            }
-        } else {
-            if (commaAdded) { //увеличиваем дробную часть
-                quantityAfterComma++; //увеличиваем количество цифр дробной части
-                /*double scale = Math.pow(10, quantityAfterComma);//множитель для дробной части
-                double floor = Math.floor(firstNumber);//определяем целую часть
-                double numberBeforeScaling = floor + ((firstNumber - floor) * scale + (double)intNumber);
-                numberBeforeScaling = Math.floor(numberBeforeScaling);
-                firstNumber = numberBeforeScaling / scale;
-                 */
-                double scale = Math.pow(10, quantityAfterComma);//множитель для дробной части
-                firstNumber = firstNumber * scale;
-                firstNumber = firstNumber + (double) intNumber;
-                firstNumber = firstNumber / scale;
-            } else { //увеличиваем целую часть
-                firstNumber = firstNumber * 10.0 + intNumber;
-            }
-
+        if (commaAdded) { //увеличиваем дробную часть
+            quantityAfterComma++; //увеличиваем количество цифр дробной части
+            double scale = Math.pow(10, quantityAfterComma);//множитель для дробной части
+            firstNumber = firstNumber * scale;
+            firstNumber = firstNumber + (double) intNumber;
+            firstNumber = firstNumber / scale;
+        } else { //увеличиваем целую часть
+            firstNumber = firstNumber * 10.0 + intNumber;
         }
-
     }
 
-
+    //форматирует Result и возвращает отформатированную строку
     String getStringResult() {
-        //return String.format("%s%s", stringResult, sign);
-        int length = 0;
-        String[] splitter = String.valueOf(result).split("\\.");
-        length = splitter[1].length();
-        if (splitter[1].equals(ZERO_STRING)) {//если после запятой одна цифра и это ноль, исключаем его из формата
-            //немного костыль, но лучшего решения не придумал
-            length = 0;
-        }
-        length = getMinLength(length);//Если полученное количество знаков после запятой больше ммаксимального количества - берем максимум
+        int length = getMinLength(result);
         String stringFormat = String.format("%%.%df%%s", length);
-        //return String.format("%f%s", result, sign);
         return String.format(stringFormat, result, sign);
     }
 
+    //форматирует firstNumber и возвращает отформатированную строку
     String getStringFirstNumber() {
-        int length = getMinLength(quantityAfterComma);//Если полученное количество знаков после запятой больше ммаксимального количества - берем максимум
+        int length = getMinLength(firstNumber);//Если полученное количество знаков после запятой больше максимального количества - берем максимум
         String stringFormat = String.format("%%.%df", length);//отформатируем по количеству знаков после запятой
         return String.format(stringFormat, firstNumber);
     }
 
-    private int getMinLength(int fNumber) {
-        return Math.min(fNumber, MAX_QUANTITY_AFTER_COMMA);
+    //определяет количество знаков при округлении с учетом ограничений
+    private int getMinLength(double numberToSplit) {
+        int length = 0;
+        String[] splitter = String.valueOf(numberToSplit).split("\\.");
+        length = BigDecimal.valueOf(numberToSplit).scale();
+        double flooredNumber = Math.floor(numberToSplit);
+        int quantityBeforComma = countNumberQuantity(flooredNumber);
+        if (Math.abs(flooredNumber - numberToSplit) == 0.0) {//если после запятой одна цифра и это ноль, исключаем его из формата
+            //немного костыль, но лучшего решения не придумал
+            length = 0;
+        }
+        return Math.min(length, MAX_QUANTITY_AFTER_COMMA - Math.min(MAX_QUANTITY_AFTER_COMMA, quantityBeforComma));
+    }
+
+    //определяет количество знаков до запятой
+    private int countNumberQuantity(double fNumber) {
+        int numberQuantity = 0;
+        while (fNumber > 1.0) {
+            fNumber /= 10.0;
+            numberQuantity++;
+        }
+        return numberQuantity;
     }
 }
