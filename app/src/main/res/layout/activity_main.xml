@@ -1,34 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_columnSpan="4"
-    android:gravity="center"
-    android:background="@drawable/background_numbers"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
 
-    android:baselineAligned="false"
+    android:layout_columnSpan="4"
+    android:background="@drawable/background_numbers"
+    android:gravity="center"
+
+
     android:orientation="horizontal">
 
     <TableRow
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
         android:gravity="center">
 
         <TextView
             android:id="@+id/show_result_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_start_end_side_view"
+            android:layout_marginEnd="@dimen/margin_start_end_side_view"
             android:layout_marginBottom="@dimen/margin_bottom"
-            android:layout_marginStart="@dimen/margin_start_end"
-            android:layout_marginEnd="@dimen/margin_start_end"
             android:layout_span="4"
+            android:background="@color/text_view_back_color"
 
             android:gravity="end"
+            android:paddingEnd="@dimen/padding_end"
             android:text="@string/defaultText"
             android:textColor="@color/white"
-            android:background="@color/text_view_back_color"
             android:textSize="@dimen/button_size" />
     </TableRow>
+
     <TableRow
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -38,19 +42,21 @@
             android:id="@+id/enter_numbers_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_start_end"
-            android:layout_marginEnd="@dimen/margin_start_end"
+            android:layout_marginStart="@dimen/margin_start_end_side_view"
+            android:layout_marginEnd="@dimen/margin_start_end_side_view"
             android:layout_span="4"
-            android:textColor="@color/white"
-            android:text="@string/defaultText"
             android:background="@color/text_view_back_color"
             android:gravity="end"
+            android:paddingEnd="@dimen/padding_end"
+            android:text="@string/defaultText"
+            android:textColor="@color/white"
             android:textSize="@dimen/button_size" />
     </TableRow>
 
     <TableRow
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
         android:gravity="center">
 
         <Button
@@ -58,6 +64,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_start_end"
+
             android:layout_marginEnd="@dimen/margin_start_end"
             android:layout_span="2"
             android:text="@string/button_clear_all"
