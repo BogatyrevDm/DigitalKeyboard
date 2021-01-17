@@ -16,17 +16,9 @@
 
         <TextView
             android:id="@+id/show_result_textview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_start_end"
-            android:layout_marginEnd="@dimen/margin_start_end"
+            style="@style/TextViewsLand"
             android:layout_marginBottom="@dimen/margin_bottom_land"
-            android:layout_span="5"
-            android:background="@color/text_view_back_color"
-            android:gravity="end"
-            android:text="@string/defaultText"
-            android:textColor="@color/white"
-            android:textSize="@dimen/button_size_land" />
+            android:text="@string/defaultText" />
     </TableRow>
 
     <TableRow
@@ -36,23 +28,15 @@
 
         <TextView
             android:id="@+id/enter_numbers_textview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_start_end"
-            android:layout_marginEnd="@dimen/margin_start_end"
-            android:layout_span="5"
-            android:background="@color/text_view_back_color"
-            android:gravity="end"
-            android:text="@string/defaultText"
-            android:textColor="@color/white"
-            android:textSize="@dimen/button_size_land" />
+            style="@style/TextViewsLand"
+            android:text="@string/defaultText" />
     </TableRow>
 
     <TableRow
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:theme="@style/ButtonsLand"
-        android:gravity="center">
+        android:gravity="center"
+        android:theme="@style/ButtonsLand">
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_clear_all"
@@ -75,8 +59,8 @@
     <TableRow
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:theme="@style/ButtonsLand"
-        android:gravity="center">
+        android:gravity="center"
+        android:theme="@style/ButtonsLand">
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_1"
@@ -103,8 +87,8 @@
     <TableRow
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:theme="@style/ButtonsLand"
-        android:gravity="center">
+        android:gravity="center"
+        android:theme="@style/ButtonsLand">
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_5"
@@ -130,8 +114,8 @@
     <TableRow
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:theme="@style/ButtonsLand"
-        android:gravity="center">
+        android:gravity="center"
+        android:theme="@style/ButtonsLand">
 
 
         <com.google.android.material.button.MaterialButton
