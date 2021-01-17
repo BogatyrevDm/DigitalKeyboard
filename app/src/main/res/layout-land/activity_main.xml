@@ -1,36 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-
-    android:layout_columnSpan="4"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_columnSpan="5"
     android:background="@drawable/background_numbers"
+    android:baselineAligned="false"
+
     android:gravity="center"
-
-
     android:orientation="horizontal">
 
     <TableRow
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         android:gravity="center">
 
         <TextView
             android:id="@+id/show_result_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_start_end_side_view"
-            android:layout_marginEnd="@dimen/margin_start_end_side_view"
-            android:layout_marginBottom="@dimen/margin_bottom"
-            android:layout_span="4"
+            android:layout_marginStart="@dimen/margin_start_end"
+            android:layout_marginEnd="@dimen/margin_start_end"
+            android:layout_marginBottom="@dimen/margin_bottom_land"
+            android:layout_span="5"
             android:background="@color/text_view_back_color"
-
             android:gravity="end"
-            android:paddingEnd="@dimen/padding_end"
             android:text="@string/defaultText"
             android:textColor="@color/white"
-            android:textSize="@dimen/button_size" />
+            android:textSize="@dimen/button_size_land" />
     </TableRow>
 
     <TableRow
@@ -42,21 +38,19 @@
             android:id="@+id/enter_numbers_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_start_end_side_view"
-            android:layout_marginEnd="@dimen/margin_start_end_side_view"
-            android:layout_span="4"
+            android:layout_marginStart="@dimen/margin_start_end"
+            android:layout_marginEnd="@dimen/margin_start_end"
+            android:layout_span="5"
             android:background="@color/text_view_back_color"
             android:gravity="end"
-            android:paddingEnd="@dimen/padding_end"
             android:text="@string/defaultText"
             android:textColor="@color/white"
-            android:textSize="@dimen/button_size" />
+            android:textSize="@dimen/button_size_land" />
     </TableRow>
 
     <TableRow
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         android:gravity="center">
 
         <Button
@@ -64,11 +58,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_start_end"
-
             android:layout_marginEnd="@dimen/margin_start_end"
             android:layout_span="2"
             android:text="@string/button_clear_all"
-            android:textSize="@dimen/button_size" />
+            android:textSize="@dimen/button_size_land" />
 
         <Button
             android:id="@+id/button_clear_one"
@@ -77,7 +70,7 @@
             android:layout_marginStart="@dimen/margin_start_end"
             android:layout_marginEnd="@dimen/margin_start_end"
             android:text="@string/button_clear_one"
-            android:textSize="@dimen/button_size" />
+            android:textSize="@dimen/button_size_land" />
 
         <Button
             android:id="@+id/button_divide"
@@ -87,8 +80,16 @@
             android:layout_marginEnd="@dimen/margin_start_end"
 
             android:text="@string/button_divide"
-            android:textSize="@dimen/button_size" />
+            android:textSize="@dimen/button_size_land" />
 
+        <Button
+            android:id="@+id/button_multiply"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_start_end"
+            android:layout_marginEnd="@dimen/margin_start_end"
+            android:text="@string/button_multiply"
+            android:textSize="@dimen/button_size_land" />
     </TableRow>
 
     <TableRow
@@ -103,7 +104,7 @@
             android:layout_marginStart="@dimen/margin_start_end"
             android:layout_marginEnd="@dimen/margin_start_end"
             android:text="@string/button_1"
-            android:textSize="@dimen/button_size" />
+            android:textSize="@dimen/button_size_land" />
 
         <Button
             android:id="@+id/button_2"
@@ -112,7 +113,7 @@
             android:layout_marginStart="@dimen/margin_start_end"
             android:layout_marginEnd="@dimen/margin_start_end"
             android:text="@string/button_2"
-            android:textSize="@dimen/button_size" />
+            android:textSize="@dimen/button_size_land" />
 
         <Button
             android:id="@+id/button_3"
@@ -121,23 +122,7 @@
             android:layout_marginStart="@dimen/margin_start_end"
             android:layout_marginEnd="@dimen/margin_start_end"
             android:text="@string/button_3"
-            android:textSize="@dimen/button_size" />
-
-        <Button
-            android:id="@+id/button_multiply"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_start_end"
-            android:layout_marginEnd="@dimen/margin_start_end"
-            android:text="@string/button_multiply"
-            android:textSize="@dimen/button_size" />
-
-    </TableRow>
-
-    <TableRow
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center">
+            android:textSize="@dimen/button_size_land" />
 
         <Button
             android:id="@+id/button_4"
@@ -146,25 +131,7 @@
             android:layout_marginStart="@dimen/margin_start_end"
             android:layout_marginEnd="@dimen/margin_start_end"
             android:text="@string/button_4"
-            android:textSize="@dimen/button_size" />
-
-        <Button
-            android:id="@+id/button_5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_start_end"
-            android:layout_marginEnd="@dimen/margin_start_end"
-            android:text="@string/button_5"
-            android:textSize="@dimen/button_size" />
-
-        <Button
-            android:id="@+id/button_6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_start_end"
-            android:layout_marginEnd="@dimen/margin_start_end"
-            android:text="@string/button_6"
-            android:textSize="@dimen/button_size" />
+            android:textSize="@dimen/button_size_land" />
 
         <Button
             android:id="@+id/button_minus"
@@ -173,7 +140,7 @@
             android:layout_marginStart="@dimen/margin_start_end"
             android:layout_marginEnd="@dimen/margin_start_end"
             android:text="@string/button_minus"
-            android:textSize="@dimen/button_size" />
+            android:textSize="@dimen/button_size_land" />
 
     </TableRow>
 
@@ -181,6 +148,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center">
+
+        <Button
+            android:id="@+id/button_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_start_end"
+            android:layout_marginEnd="@dimen/margin_start_end"
+            android:text="@string/button_5"
+            android:textSize="@dimen/button_size_land" />
+
+        <Button
+            android:id="@+id/button_6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_start_end"
+            android:layout_marginEnd="@dimen/margin_start_end"
+            android:text="@string/button_6"
+            android:textSize="@dimen/button_size_land" />
 
         <Button
             android:id="@+id/button_7"
@@ -189,7 +174,7 @@
             android:layout_marginStart="@dimen/margin_start_end"
             android:layout_marginEnd="@dimen/margin_start_end"
             android:text="@string/button_7"
-            android:textSize="@dimen/button_size" />
+            android:textSize="@dimen/button_size_land" />
 
         <Button
             android:id="@+id/button_8"
@@ -198,16 +183,7 @@
             android:layout_marginStart="@dimen/margin_start_end"
             android:layout_marginEnd="@dimen/margin_start_end"
             android:text="@string/button_8"
-            android:textSize="@dimen/button_size" />
-
-        <Button
-            android:id="@+id/button_9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_start_end"
-            android:layout_marginEnd="@dimen/margin_start_end"
-            android:text="@string/button_9"
-            android:textSize="@dimen/button_size" />
+            android:textSize="@dimen/button_size_land" />
 
         <Button
             android:id="@+id/button_plus"
@@ -216,14 +192,23 @@
             android:layout_marginStart="@dimen/margin_start_end"
             android:layout_marginEnd="@dimen/margin_start_end"
             android:text="@string/button_plus"
-            android:textSize="@dimen/button_size" />
-
+            android:textSize="@dimen/button_size_land" />
     </TableRow>
 
     <TableRow
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center">
+
+
+        <Button
+            android:id="@+id/button_9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_start_end"
+            android:layout_marginEnd="@dimen/margin_start_end"
+            android:text="@string/button_9"
+            android:textSize="@dimen/button_size_land" />
 
         <Button
             android:id="@+id/button_change_sing"
@@ -232,7 +217,7 @@
             android:layout_marginStart="@dimen/margin_start_end"
             android:layout_marginEnd="@dimen/margin_start_end"
             android:text="@string/button_change_sing"
-            android:textSize="@dimen/button_size" />
+            android:textSize="@dimen/button_size_land" />
 
         <Button
             android:id="@+id/button_0"
@@ -241,7 +226,7 @@
             android:layout_marginStart="@dimen/margin_start_end"
             android:layout_marginEnd="@dimen/margin_start_end"
             android:text="@string/button_0"
-            android:textSize="@dimen/button_size" />
+            android:textSize="@dimen/button_size_land" />
 
         <Button
             android:id="@+id/button_comma"
@@ -250,7 +235,7 @@
             android:layout_marginStart="@dimen/margin_start_end"
             android:layout_marginEnd="@dimen/margin_start_end"
             android:text="@string/button_comma"
-            android:textSize="@dimen/button_size" />
+            android:textSize="@dimen/button_size_land" />
 
         <Button
             android:id="@+id/button_equal"
@@ -259,7 +244,9 @@
             android:layout_marginStart="@dimen/margin_start_end"
             android:layout_marginEnd="@dimen/margin_start_end"
             android:text="@string/button_equal"
-            android:textSize="@dimen/button_size" />
+            android:textSize="@dimen/button_size_land" />
 
     </TableRow>
+
+
 </TableLayout>
