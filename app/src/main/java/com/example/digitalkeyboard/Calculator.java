@@ -5,7 +5,7 @@ import android.os.Parcelable;
 
 import java.math.BigDecimal;
 
-public class Calculator implements Parcelable {
+class Calculator implements Parcelable {
     private double result;//результат вычисления
     private double firstNumber;//вводимое в настоящий момент число.
     private char sign;//знак вычисления

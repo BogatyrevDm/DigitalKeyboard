@@ -1,5 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Digital keyboard</string>
+    <string name="app_name">Калькулятор</string>
     <string name="button_1">1</string>
     <string name="button_2">2</string>
     <string name="button_3">3</string>

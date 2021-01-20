@@ -7,6 +7,10 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="button_color">#4597B6</color>
-    <color name="text_view_back_color">#4597B6</color>
+    <color name="button_color">#4DBBE4</color>
+    <color name="button_color_darker">#219DD8</color>
+    <color name="button_color_dark_theme">#067DAA</color>
+    <color name="button_color_darker_dark_theme">#0F3A4E</color>
+    <color name="text_view_back_color">#3DA4CA</color>
+    <color name="text_view_back_color_dark_theme">#2D86A6</color>
 </resources>
