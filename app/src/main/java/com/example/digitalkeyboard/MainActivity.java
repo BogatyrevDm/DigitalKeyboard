@@ -1,11 +1,13 @@
 package com.example.digitalkeyboard;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -29,9 +31,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button buttonDivide;
     private Button buttonPlus;
     private Button buttonMinus;
+    private Button buttonOpenSettings;
     private TextView textViewShowResult;
     private TextView textViewEnterNumbers;
     private final String KEY_CALCULATOR = "Calculator";
+    private final static int REQUEST_CODE = 99;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,6 +85,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonDivide.setOnClickListener(this);
         buttonPlus.setOnClickListener(this);
         buttonMinus.setOnClickListener(this);
+        buttonOpenSettings.setOnClickListener(this);
         textViewShowResult.setOnClickListener(this);
         textViewEnterNumbers.setOnClickListener(this);
     }
@@ -106,6 +111,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonDivide = findViewById(R.id.button_divide);
         buttonPlus = findViewById(R.id.button_plus);
         buttonMinus = findViewById(R.id.button_minus);
+        buttonOpenSettings = findViewById(R.id.button_open_settings);
         textViewShowResult = findViewById(R.id.show_result_textview);
         textViewEnterNumbers = findViewById(R.id.enter_numbers_textview);
     }
@@ -170,6 +176,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case (R.id.button_minus):
                 setSing(R.id.button_minus);
                 break;
+            case (R.id.button_open_settings):
+                openSettings();
+                break;
+        }
+    }
+
+    private void openSettings() {
+        Intent intent = new Intent(this, SettingsActivity.class);
+        startActivityForResult(intent, REQUEST_CODE);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode != REQUEST_CODE) {
+            super.onActivityResult(requestCode, resultCode, data);
+        }
+        if (resultCode == RESULT_OK) {
+            //Логику пропишем позе
         }
     }
 
