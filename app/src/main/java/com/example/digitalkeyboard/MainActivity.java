@@ -196,7 +196,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             super.onActivityResult(requestCode, resultCode, data);
         }
         if (resultCode == RESULT_OK) {
-            //Логику пропишем позе
+            //Пересоздаем активность
+            recreate();
         }
     }
 
