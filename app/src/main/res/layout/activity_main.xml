@@ -2,12 +2,9 @@
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-
     android:layout_columnSpan="4"
     android:background="@drawable/background_numbers"
     android:gravity="center"
-
-
     android:orientation="horizontal">
 
     <TableRow
@@ -147,4 +144,17 @@
             android:text="@string/button_equal" />
 
     </TableRow>
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:theme="@style/Buttons">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_open_settings"
+            android:layout_span="4"
+            android:text="@string/button_open_settings" />
+    </TableRow>
+
 </TableLayout>

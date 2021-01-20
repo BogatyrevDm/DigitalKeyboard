@@ -7,4 +7,5 @@
     <string name="red_theme">Красная тема</string>
     <string name="choose_theme">Выберите тему:</string>
     <string name="cancel">Отмена</string>
+    <string name="button_open_settings">Открыть настройки</string>
 </resources>
