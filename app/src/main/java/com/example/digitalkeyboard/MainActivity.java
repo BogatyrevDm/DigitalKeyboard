@@ -40,6 +40,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(getAppTheme(getThemeChoosen()));
+
         setContentView(R.layout.activity_main);
         calculator = new Calculator();
         initView();

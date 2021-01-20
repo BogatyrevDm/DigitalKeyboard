@@ -1,7 +1,5 @@
 package com.example.digitalkeyboard;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,6 +9,8 @@ public class SettingsActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(getAppTheme(getThemeSaved()));
+
         setContentView(R.layout.activity_settings);
         initThemeChooser();
         initButtons();
@@ -23,9 +23,14 @@ public class SettingsActivity extends BaseActivity {
             public void onClick(View v) {
 
             }
-        }
+        });
+        Button buttonCancel = findViewById(R.id.button_cancel);
+        buttonCancel.setOnClickListener(new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View v) {
 
-
+                                            }
+                                        }
         );
     }
 
