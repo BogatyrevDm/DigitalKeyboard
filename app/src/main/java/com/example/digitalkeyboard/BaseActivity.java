@@ -34,8 +34,8 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setThemeSaved(getAppThemeSaved(R.style.Theme_DigitalKeyboard));
-        setThemeChoosen(getAppThemeChoosen(R.style.Theme_DigitalKeyboard));
+        setThemeSaved(getAppThemeSaved(MAIN_THEME));
+        setThemeChoosen(getAppThemeChoosen(MAIN_THEME));
     }
 
     protected int getAppTheme(int themeId) {
