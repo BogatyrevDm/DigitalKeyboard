@@ -17,6 +17,7 @@
             </intent-filter>
             <intent-filter android:label="com.example.digitalkeyboard.MainActivity">
                 <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT"/>
                 <data
                     android:host="open"
                     android:scheme="calculator" />
