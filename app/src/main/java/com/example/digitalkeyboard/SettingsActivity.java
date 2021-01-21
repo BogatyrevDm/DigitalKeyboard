@@ -12,8 +12,8 @@ public class SettingsActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //Устанавливаем выбранную тему
         setTheme(getAppTheme(getThemeChoosen()));
-
         setContentView(R.layout.activity_settings);
         initThemeChooser();
         initButtons();
@@ -22,6 +22,7 @@ public class SettingsActivity extends BaseActivity {
     private void initButtons() {
         Button buttonOk = findViewById(R.id.button_ok);
         buttonOk.setOnClickListener(v -> {
+            //Устанавливаем выбранную тему, как сохраненную
             setThemeSaved(getThemeChoosen());
             setAppTheme();
             setResult(RESULT_OK);
@@ -29,6 +30,8 @@ public class SettingsActivity extends BaseActivity {
         });
         Button buttonCancel = findViewById(R.id.button_cancel);
         buttonCancel.setOnClickListener(v -> {
+                    //Пользователь отказался от выбора
+                    //Восстанавливаем сохранненую тему
                     setThemeChoosen(getThemeSaved());
                     setAppTheme();
                     setResult(RESULT_CANCELED);
@@ -46,11 +49,11 @@ public class SettingsActivity extends BaseActivity {
     }
 
     private void initRadioButtonListener(View viewById, int theme) {
-
-
         viewById.setOnClickListener(v -> {
+            //Устанавливаем выбранную тему
             setThemeChoosen(theme);
             setAppTheme();
+            //Пересоздаем активити
             recreate();
         });
     }

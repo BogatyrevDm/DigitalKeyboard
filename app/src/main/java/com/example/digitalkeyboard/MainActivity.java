@@ -40,6 +40,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //Установим сохранненую тему
         setTheme(getAppTheme(getThemeChoosen()));
 
         setContentView(R.layout.activity_main);
@@ -183,7 +184,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 break;
         }
     }
-
+    //Откроем настройки
     private void openSettings() {
         Intent intent = new Intent(this, SettingsActivity.class);
         startActivityForResult(intent, REQUEST_CODE);
