@@ -207,7 +207,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         textViewEnterNumbers.setText(calculator.getStringFirstNumber());
     }
 
-    String getViewText(int id) {
+    private String getViewText(int id) {
         if (id == R.id.button_0) {
             return (String) button0.getText();
         } else if (id == R.id.button_1) {

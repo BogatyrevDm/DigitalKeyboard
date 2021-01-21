@@ -54,6 +54,10 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_multiply"
             android:text="@string/button_multiply" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_minus"
+            android:text="@string/button_minus" />
     </TableRow>
 
     <TableRow
@@ -79,9 +83,12 @@
             android:text="@string/button_4" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/button_minus"
-            android:text="@string/button_minus" />
+            android:id="@+id/button_5"
+            android:text="@string/button_5" />
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_plus"
+            android:text="@string/button_plus" />
     </TableRow>
 
     <TableRow
@@ -89,10 +96,6 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:theme="@style/ButtonsLand">
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/button_5"
-            android:text="@string/button_5" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_6"
@@ -107,18 +110,6 @@
             android:text="@string/button_8" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/button_plus"
-            android:text="@string/button_plus" />
-    </TableRow>
-
-    <TableRow
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:theme="@style/ButtonsLand">
-
-
-        <com.google.android.material.button.MaterialButton
             android:id="@+id/button_9"
             android:text="@string/button_9" />
 
@@ -129,6 +120,13 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_0"
             android:text="@string/button_0" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:theme="@style/ButtonsLand">
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_comma"
@@ -136,9 +134,13 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_equal"
+            android:layout_span="2"
             android:text="@string/button_equal" />
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_open_settings"
+            android:layout_span="3"
+            android:text="@string/button_open_settings" />
     </TableRow>
-
 
 </TableLayout>
