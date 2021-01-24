@@ -9,8 +9,13 @@
     <color name="white">#FFFFFFFF</color>
     <color name="button_color">#4DBBE4</color>
     <color name="button_color_darker">#219DD8</color>
+    <color name="button_color_psychedelic">#FFE923</color>
+    <color name="button_color_darker_psychedelic">#D736F4</color>
     <color name="button_color_dark_theme">#067DAA</color>
     <color name="button_color_darker_dark_theme">#0F3A4E</color>
+    <color name="button_color_red">#FA695E</color>
+    <color name="button_color_darker_red">#CF1608</color>
+    <color name="text_color_psychedelic">#626C00</color>
     <color name="text_view_back_color">#3DA4CA</color>
     <color name="text_view_back_color_dark_theme">#2D86A6</color>
 </resources>
